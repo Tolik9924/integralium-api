@@ -18,5 +18,7 @@ export const registerSchema = z
 
 export const loginSchema = z.object({
   email: z.email({ message: "Invalid email" }),
-  password: z.string().min(1),
+  password: z
+    .string()
+    .min(8, { message: "Password must contain minimum 8 symbols." }),
 });
