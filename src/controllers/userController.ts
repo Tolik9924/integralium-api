@@ -7,6 +7,7 @@ const userRepo = AppDataSource.getRepository(User);
 
 export const createUser = async (req: Request, res: Response) => {
   try {
+    console.log("USER: ", req.body);
     const parsed = userSchema.parse(req.body);
     const user = userRepo.create(parsed);
     await userRepo.save(user);
