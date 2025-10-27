@@ -1,4 +1,3 @@
-// src/services/authService.ts
 import bcrypt from "bcryptjs";
 import { AppDataSource } from "../db/data-source";
 import { User } from "../entities/User";
