@@ -45,10 +45,10 @@ export const login = async (req: Request, res: Response) => {
 
     const user = await findUserByEmail(email);
     if (!user)
-      return res.status(401).json({ message: "Невірні облікові дані" });
+      return res.status(401).json({ message: "Incorrect credentials" });
 
     const ok = await comparePassword(password, user.password);
-    if (!ok) return res.status(401).json({ message: "Невірні облікові дані" });
+    if (!ok) return res.status(401).json({ message: "Incorrect password" });
 
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, {
       expiresIn: "7d",
